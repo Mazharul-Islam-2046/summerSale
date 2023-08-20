@@ -20,12 +20,14 @@ function couponApply() {
 
 		// Calculating
 		const totalPrice = parseFloat(totalPriceSpan.innerText).toFixed(2);
-		const discount = (totalPrice * 0.2).toFixed(2);
-		const total = totalPrice - discount;
+		const discountString = (totalPrice * 0.2).toFixed(2);
+		const discount = parseFloat(discountString);
+		const totalInt = totalPrice - discount;
+		const total = totalInt.toFixed(2);
 
 		// Setting The Prices
 		totalPriceSpan.innerText = totalPrice;
-		discountSpan.innerText = discount;
+		discountSpan.innerText = discountString;
 		totalSpan.innerText = total;
 
 		// Returing Value
@@ -74,32 +76,40 @@ function CalcNdSet(price, coupon) {
 	if (coupon) {
 		const priceFloat = parseFloat(price);
 		totalPrice += priceFloat;
-		const discount = (totalPrice * 0.2).toFixed(2);
-		const total = totalPrice - discount;
+		const discountString = (totalPrice * 0.2).toFixed(2);
+		const discount = parseFloat(discountString)
+		const totalInt = totalPrice - discount;
+		const total = totalInt.toFixed(2);
 
-		btnEnable(total)
-
-		totalPriceSpan.innerText = totalPrice;
-		discountSpan.innerText = discount;
+		totalPriceSpan.innerText = totalPrice.toFixed(2);
+		discountSpan.innerText = discountString;
 		totalSpan.innerText = total;
 	} else {
 		const priceFloat = parseFloat(price);
 		totalPrice += priceFloat;
 
-		btnEnable(totalPrice)
+		applyBtnEnable(totalPrice)
+		purchaseBtnEnable(totalPrice)
 
-		totalPriceSpan.innerText = totalPrice;
-		totalSpan.innerText = totalPrice;
+		totalPriceSpan.innerText = totalPrice.toFixed(2);
+		totalSpan.innerText = totalPrice.toFixed(2);
 	}
 }
 
-// Button Enable Function
-function btnEnable(total) {
+// Apply Button Enable Function
+function applyBtnEnable(total) {
 	if (total >= 200) {
 		const couponApplyBtn = document.getElementById("couponApply");
-		const purchaseBtn = document.getElementById("purchase");
 
 		couponApplyBtn.removeAttribute('disabled');
+	}
+}
+
+// Purchase Button Enable
+function purchaseBtnEnable(total) {
+	if (total >= 0) {
+		const purchaseBtn = document.getElementById("purchase");
+
 		purchaseBtn.removeAttribute('disabled');
 	}
 }
