@@ -48,7 +48,7 @@ function cardClick(target) {
 
 	// Creating New Elements
 	const liNode = document.createElement("li");
-	liNode.innerText = `${currentNum}. ${prodName}`;
+	liNode.innerText = currentNum + ". " + prodName;
 
 	// Appended New Element
 	itmeList.appendChild(liNode);
