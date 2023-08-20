@@ -113,3 +113,9 @@ function purchaseBtnEnable(total) {
 		purchaseBtn.removeAttribute('disabled');
 	}
 }
+
+
+// On Home Page or Refresh Function
+function onHomePage() {
+	location.href = "index.html";
+}

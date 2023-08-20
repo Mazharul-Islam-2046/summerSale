@@ -450,11 +450,25 @@
 						<hr class="my-6" />
 						<button
 							id="purchase"
-							class="w-full bg-primary-color rounded-lg py-4 hover:bg-black text-white text-xl font-semibold disabled:hover:bg-slate-400 disabled:bg-slate-400"
+							class="btn w-full bg-primary-color rounded-lg btn-lg hover:bg-black text-white text-xl font-semibold disabled:hover:bg-slate-400 disabled:bg-slate-400"
+							onclick="my_modal_1.showModal()"
 							disabled
 						>
 							Make Purchase
 						</button>
+						<dialog id="my_modal_1" class="modal">
+							<form method="dialog" class="modal-box flex flex-col justify-center items-center py-16">
+								<img src="images/congo.png" alt="">
+								<h3 class="font-bold text-5xl text-primary-font-color">Congratulations</h3>
+								<p class="py-6 text-xl">
+									Your Purchase the product
+								</p>
+								<div class="modal-action">
+									<!-- if there is a button in form, it will close the modal -->
+									<button onclick="onHomePage()" class="btn px-14 text-lg bg-primary-color text-white rounded-lg">Go Home</button>
+								</div>
+							</form>
+						</dialog>
 					</div>
 				</div>
 			</section>
